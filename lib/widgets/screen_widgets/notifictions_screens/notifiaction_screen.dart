@@ -91,6 +91,7 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                     Container(
                       height: 3,
                       width: 19,
+                      margin: const EdgeInsets.only(top: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color:
@@ -118,6 +119,7 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                     Container(
                       height: 3,
                       width: 67,
+                      margin: const EdgeInsets.only(top: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color:

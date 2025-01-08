@@ -3,9 +3,7 @@ import 'package:code_ju_project/widgets/screen_widgets/notifictions_screens/noti
 import 'package:code_ju_project/widgets/screen_widgets/splashscreen_widget.dart';
 import 'package:flutter/material.dart';
 
-void main() =>
-  runApp(const MyApp());
-
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
