@@ -20,6 +20,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       extendBodyBehindAppBar: true,
       drawer: widget.drawerScreen,
@@ -62,7 +63,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.18),
                     SizedBox(
                       width: double.infinity,
                       child: Column(
