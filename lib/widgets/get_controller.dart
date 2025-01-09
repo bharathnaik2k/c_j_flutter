@@ -16,11 +16,11 @@ class CountController extends GetxController {
     pageController.jumpToPage(pageIndex);
   }
 
-  void onChanged(var index) {
+  void onChanged(int index) {
     notiSeleteIndex.value = index;
   }
 
-  void onitemchange(var i) {
+  void onitemchange(int i) {
     contt.jumpToPage(i);
   }
 }

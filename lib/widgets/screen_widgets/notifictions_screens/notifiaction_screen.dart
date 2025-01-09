@@ -15,7 +15,7 @@ class NotificationScreenWidget extends StatefulWidget {
 }
 
 class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
-  CountController countController = Get.put(CountController());
+  CountController getxController = Get.put(CountController());
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +64,9 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                   children: [
                     InkWell(
                       onTap: () {
-                        countController.onChanged(0);
-                        countController.onitemchange(0);
-                        countController.notiSeleteIndex.value = 0;
+                        getxController.onChanged(0);
+                        getxController.onitemchange(0);
+                        getxController.notiSeleteIndex.value = 0;
                       },
                       child: const Text(
                         " All ",
@@ -80,7 +80,7 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                         margin: const EdgeInsets.only(top: 8),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: countController.notiSeleteIndex.value == 0
+                            color: getxController.notiSeleteIndex.value == 0
                                 ? Colors.pink
                                 : Colors.transparent),
                       ),
@@ -92,9 +92,9 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                   children: [
                     InkWell(
                       onTap: () {
-                        countController.onChanged(1);
-                        countController.onitemchange(1);
-                        countController.notiSeleteIndex.value = 1;
+                        getxController.onChanged(1);
+                        getxController.onitemchange(1);
+                        getxController.notiSeleteIndex.value = 1;
                       },
                       child: const Text(
                         "Importent",
@@ -108,7 +108,7 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
                         margin: const EdgeInsets.only(top: 8),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: countController.notiSeleteIndex.value == 1
+                            color: getxController.notiSeleteIndex.value == 1
                                 ? Colors.pink
                                 : Colors.transparent),
                       ),
@@ -120,8 +120,8 @@ class _NotificationScreenWidgetState extends State<NotificationScreenWidget> {
             const Divider(),
             Expanded(
               child: PageView(
-                controller: countController.contt,
-                onPageChanged: (index) => countController.onChanged(index),
+                controller: getxController.contt,
+                onPageChanged: (index) => getxController.onChanged(index),
                 children: const [
                   AllScreenWidget(),
                   ImportantScreenWidget(),

@@ -9,24 +9,24 @@ List<Map<String, dynamic>> allCourses = [
     "viewed_chap": "4.3",
     "pages": "12",
     "courses": [
-      {"type": "html", "mood": "beginner", "price": "9999"},
-      {"type": "html", "mood": "beginner", "price": "9999"},
-      {"type": "html", "mood": "beginner", "price": "9999"},
-      {"type": "html", "mood": "beginner", "price": "9999"}
+      {"type": "HTML", "mood": "beginner", "price": "9999"},
+      {"type": "HTML", "mood": "beginner", "price": "9999"},
+      {"type": "HTML", "mood": "beginner", "price": "9999"},
+      {"type": "HTML", "mood": "beginner", "price": "9999"}
     ],
   },
   {
-    "image": Icons.video_chat_rounded,
+    "image": Icons.css,
     "bColor": Colors.blue.shade400,
     "name": "Web Development",
     "chapter": "10.0",
     "viewed_chap": "5.7",
     "pages": "10",
     "courses": [
-      {"type": "css", "mood": "beginner", "price": "9999"},
-      {"type": "css", "mood": "beginner", "price": "9999"},
-      {"type": "css", "mood": "beginner", "price": "9999"},
-      {"type": "css", "mood": "beginner", "price": "9999"}
+      {"type": "CSS", "mood": "beginner", "price": "9999"},
+      {"type": "CSS", "mood": "beginner", "price": "9999"},
+      {"type": "CSS", "mood": "beginner", "price": "9999"},
+      {"type": "CSS", "mood": "beginner", "price": "9999"}
     ],
   },
   {
@@ -37,10 +37,10 @@ List<Map<String, dynamic>> allCourses = [
     "viewed_chap": "4.4",
     "pages": "10",
     "courses": [
-      {"type": "js", "mood": "beginner", "price": "9999"},
-      {"type": "js", "mood": "beginner", "price": "9999"},
-      {"type": "js", "mood": "beginner", "price": "9999"},
-      {"type": "js", "mood": "beginner", "price": "9999"}
+      {"type": "JavaScript", "mood": "beginner", "price": "9999"},
+      {"type": "JavaScript", "mood": "beginner", "price": "9999"},
+      {"type": "JavaScript", "mood": "beginner", "price": "9999"},
+      {"type": "JavaScript", "mood": "beginner", "price": "9999"}
     ],
   },
 ];

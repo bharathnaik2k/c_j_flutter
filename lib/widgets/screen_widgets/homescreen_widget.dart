@@ -142,8 +142,10 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                           "Leran More",
                                           style: TextStyle(color: Colors.white),
                                         ),
-                                        Icon(Icons.arrow_right,
-                                            color: Colors.white),
+                                        Icon(
+                                          Icons.arrow_right,
+                                          color: Colors.white,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -207,95 +209,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                           ),
                           child: InkWell(
                             onTap: () {
-                              showDialog(
-                                traversalEdgeBehavior:
-                                    TraversalEdgeBehavior.leaveFlutterView,
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    titlePadding: EdgeInsets.zero,
-                                    insetPadding: EdgeInsets.zero,
-                                    contentPadding: EdgeInsets.zero,
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    backgroundColor: Colors.transparent,
-                                    shape: const RoundedRectangleBorder(),
-                                    title: Column(
-                                      children: <Widget>[
-                                        TextField(
-                                          decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.zero,
-                                            fillColor: Colors.white,
-                                            filled: true,
-                                            prefixIcon: const Icon(
-                                                Icons.search_rounded),
-                                            border: OutlineInputBorder(
-                                              borderSide: BorderSide.none,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            hintText: "Serach Course",
-                                          ),
-                                        ),
-                                        const SizedBox(height: 5.0),
-                                        Container(
-                                          height: 400,
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.9,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Expanded(
-                                            child: ListView.builder(
-                                              shrinkWrap: true,
-                                              itemCount: allCourses[outindex]
-                                                      ["courses"]
-                                                  .length,
-                                              itemBuilder: (context, inindex) {
-                                                return Container(
-                                                  margin:
-                                                      const EdgeInsets.all(4.0),
-                                                  color: Colors.grey,
-                                                  child: Column(
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Container(
-                                                            margin:
-                                                                const EdgeInsets
-                                                                    .all(5.0),
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            color: Colors.white,
-                                                            child: Icon(
-                                                              allCourses[
-                                                                      outindex]
-                                                                  ["image"],
-                                                            ),
-                                                          ),
-                                                          Text(allCourses[outindex]
-                                                                      [
-                                                                      "courses"]
-                                                                  [
-                                                                  inindex]["type"]
-                                                              .toString()),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
+                              coursesDetails(context, outindex);
                             },
                             child: Column(
                               children: [
@@ -446,6 +360,124 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<dynamic> coursesDetails(BuildContext context, int outindex) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          titlePadding: EdgeInsets.zero,
+          insetPadding: EdgeInsets.zero,
+          contentPadding: EdgeInsets.zero,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          backgroundColor: Colors.transparent,
+          shape: const RoundedRectangleBorder(),
+          title: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.zero,
+                  fillColor: Colors.white,
+                  filled: true,
+                  prefixIcon: const Icon(Icons.search_rounded),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  hintText: "Serach Course",
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              Container(
+                height: MediaQuery.sizeOf(context).height * 0.6,
+                width: MediaQuery.sizeOf(context).width * 0.9,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: allCourses[outindex]["courses"].length,
+                  itemBuilder: (context, inindex) {
+                    return Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.all(4.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: Colors.white,
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              blurRadius: 5,
+                                              spreadRadius: 0.5,
+                                              color: Colors.grey)
+                                        ]),
+                                    margin: const EdgeInsets.all(5.0),
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(allCourses[outindex]["image"]),
+                                  ),
+                                  Text(allCourses[outindex]["courses"][inindex]
+                                          ["type"]
+                                      .toString()),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 206, 206, 206),
+                                  borderRadius: BorderRadius.circular(5.0)),
+                              child: Text(
+                                "   ${allCourses[outindex]["courses"][inindex]["mood"]}   ",
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 206, 206, 206),
+                                  borderRadius: BorderRadius.circular(5.0)),
+                              child: Text(
+                                "INR ${allCourses[outindex]["courses"][inindex]["price"]}",
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 52, 79, 255),
+                                  borderRadius: BorderRadius.circular(5.0)),
+                              child: const Text(
+                                "  Explore  ",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                            )
+                          ],
+                        ),
+                        const Divider(),
+                      ],
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

@@ -2,9 +2,7 @@ import 'package:code_ju_project/api/api_adress/api_url.dart';
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatelessWidget {
-  const DrawerScreen({
-    super.key,
-  });
+  const DrawerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

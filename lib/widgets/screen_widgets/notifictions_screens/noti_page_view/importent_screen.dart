@@ -10,7 +10,9 @@ class ImportantScreenWidget extends StatefulWidget {
 class _ImportantScreenWidgetState extends State<ImportantScreenWidget> {
   @override
   Center build(BuildContext context) {
-    Center showText = const Center(child: Text("Empty Notifications"));
+    Center showText = const Center(
+      child: Text("Empty Notifications"),
+    );
     return showText;
   }
 }

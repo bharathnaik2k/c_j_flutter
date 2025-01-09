@@ -25,11 +25,10 @@ class SplashScreenWidget extends StatelessWidget {
             ),
             const SizedBox(height: 35),
             const Text(
-              "Crafting Coders,\n           Creating Futures",
+              "Crafting Coders,\n        Creating Futures",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 28,
-                fontStyle: FontStyle.italic,
               ),
             )
           ],
