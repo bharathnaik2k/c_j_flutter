@@ -13,10 +13,27 @@ class SplashScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _naviScreenFun(context);
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 220, 255, 64),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 237, 251, 175),
       body: Center(
-        child: Icon(Icons.android, size: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/image/poster.png",
+              scale: 3,
+            ),
+            const SizedBox(height: 35),
+            const Text(
+              "Crafting Coders,\n           Creating Futures",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 28,
+                fontStyle: FontStyle.italic,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

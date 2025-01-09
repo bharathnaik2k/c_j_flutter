@@ -54,8 +54,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                   child: Text(
                                     "Hi, User Welcome Back",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                                 Container(
@@ -89,9 +90,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                               borderRadius: BorderRadius.circular(15),
                               image: const DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(
-                                  "assets/image/banner.png",
-                                ),
+                                image: AssetImage("assets/image/banner.png"),
                               ),
                             ),
                             child: Column(
@@ -114,9 +113,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                       SizedBox(height: 6),
                                       Text(
                                         "Practicle in this hackathonto solve\namazon's warehouse management",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
+                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ],
                                   ),
@@ -252,7 +249,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                           ),
                                           child: Expanded(
                                             child: ListView.builder(
-                                              // shrinkWrap: true,
+                                              shrinkWrap: true,
                                               itemCount: allCourses[outindex]
                                                       ["courses"]
                                                   .length,

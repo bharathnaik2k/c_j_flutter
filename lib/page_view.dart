@@ -18,17 +18,8 @@ class PageViewBulider extends StatefulWidget {
 class _PageViewBuliderState extends State<PageViewBulider> {
   CountController countController = Get.put(CountController());
 
-  // int seletindex = 0;
-
-  final _contt = PageController();
-
-  // void onChanged(var index) {
-  //   seletindex = index;
-  // }
-
   @override
   Widget build(BuildContext context) {
-    print("object");
     return Scaffold(
       drawer: const DrawerScreen(),
       appBar: PreferredSize(
@@ -48,27 +39,14 @@ class _PageViewBuliderState extends State<PageViewBulider> {
         ),
       ),
       body: PageView(
-        onPageChanged: (index) {
-          countController.onChangedScreen(index); // Pass the index dynamically
-        },
-        controller: countController
-            .pageController, // Use the controller from CountController
+        onPageChanged: (index) => countController.onChangedScreen(index),
+        controller: countController.pageController,
         children: const [
           HomeScreenWidget(),
           ProfissnoalScreenWidget(),
           LeraningScreenWidget(),
         ],
       ),
-
-      // body: PageView(
-      //   onPageChanged: countController.onChangedScreen(1),
-      //   controller: _contt,
-      //   children: const [
-      //     HomeScreenWidget(),
-      //     ProfissnoalScreenWidget(),
-      //     LeraningScreenWidget(),
-      //   ],
-      // ),
       bottomNavigationBar: Obx(
         () => Container(
           color: Colors.transparent,
@@ -109,7 +87,7 @@ class _PageViewBuliderState extends State<PageViewBulider> {
             notchStyle: NotchStyle.circle,
             onTap: (index) {
               if (index == countController.seletindex.value) return;
-              _contt.jumpToPage(index);
+              countController.pageController.jumpToPage(index);
               countController.seletindex.value = index;
             },
           ),

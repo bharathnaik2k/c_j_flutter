@@ -72,10 +72,7 @@ class DrawerScreen extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-          Icon(
-            icon,
-            color: color,
-          ),
+          Icon(icon, color: color),
           const SizedBox(width: 12),
           Text(
             name,
