@@ -20,12 +20,13 @@ class _PageViewBuliderState extends State<PageViewBulider> {
 
   @override
   Widget build(BuildContext context) {
+    bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return Scaffold(
       drawer: const DrawerScreen(),
       appBar: appBar(),
       body: pageView(),
       bottomNavigationBar: bottomNaviBar(),
-      floatingActionButton: flotingActionButton(),
+      floatingActionButton: keyboardIsOpened ? null : flotingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

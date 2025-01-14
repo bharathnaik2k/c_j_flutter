@@ -409,7 +409,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(4),
-                                          color: Colors.white,
+                                          color: allCourses[outindex]["bColor"],
                                           boxShadow: const [
                                             BoxShadow(
                                                 blurRadius: 5,
@@ -418,8 +418,10 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                           ]),
                                       margin: const EdgeInsets.all(5.0),
                                       padding: const EdgeInsets.all(8.0),
-                                      child:
-                                          Icon(allCourses[outindex]["image"]),
+                                      child: Icon(
+                                        allCourses[outindex]["image"],
+                                        color: Colors.white,
+                                      ),
                                     ),
                                     Text(allCourses[outindex]["courses"]
                                             [inindex]["type"]
