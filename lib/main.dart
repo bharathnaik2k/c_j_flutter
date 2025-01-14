@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   GetMaterialApp build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "varelaRoundRegular",
       ),

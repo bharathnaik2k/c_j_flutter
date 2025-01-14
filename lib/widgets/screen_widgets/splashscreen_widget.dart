@@ -21,24 +21,10 @@ class SplashScreenWidget extends StatelessWidget {
   }
 
   Center body() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            "assets/image/poster.png",
-            scale: 3,
-          ),
-          const SizedBox(height: 35),
-          const Text(
-            "Crafting Coders,\n        Creating Futures",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 28,
-            ),
-          )
-        ],
-      ),
-    );
+    return const Center(
+        child: Icon(
+      Icons.phone_android,
+      size: 65,
+    ));
   }
 }
