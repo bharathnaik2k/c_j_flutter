@@ -1,6 +1,7 @@
 import 'package:code_ju_project/api/api_data/courses.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreenWidget extends StatefulWidget {
   const HomeScreenWidget({super.key});
@@ -200,7 +201,6 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                         String afterDecimal = parts[1];
                         String result = afterDecimal.substring(0, 2);
                         int value = int.parse(result);
-
                         return Container(
                           margin: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
@@ -209,7 +209,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                           ),
                           child: InkWell(
                             onTap: () {
-                              coursesDetails(context, outindex);
+                              dialogScreen(context, outindex);
                             },
                             child: Column(
                               children: [
@@ -363,121 +363,122 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
     );
   }
 
-  Future<dynamic> coursesDetails(BuildContext context, int outindex) {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          titlePadding: EdgeInsets.zero,
-          insetPadding: EdgeInsets.zero,
-          contentPadding: EdgeInsets.zero,
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          backgroundColor: Colors.transparent,
-          shape: const RoundedRectangleBorder(),
-          title: Column(
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.zero,
-                  fillColor: Colors.white,
-                  filled: true,
-                  prefixIcon: const Icon(Icons.search_rounded),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(8.0),
+  Future<dynamic> dialogScreen(BuildContext context, int outindex) {
+    return Get.dialog(
+      Center(
+        child: Material(
+          color: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.zero,
+                    fillColor: Colors.white,
+                    filled: true,
+                    prefixIcon: const Icon(Icons.search_rounded),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    hintText: "Search Course",
                   ),
-                  hintText: "Serach Course",
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              Container(
-                height: MediaQuery.sizeOf(context).height * 0.6,
-                width: MediaQuery.sizeOf(context).width * 0.9,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8.0)),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: allCourses[outindex]["courses"].length,
-                  itemBuilder: (context, inindex) {
-                    return Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.all(4.0),
-                          child: Column(
+                const SizedBox(height: 5.0),
+                Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0)),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: allCourses[outindex]["courses"].length,
+                    itemBuilder: (context, inindex) {
+                      return Column(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                          color: Colors.white,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                blurRadius: 5,
+                                                spreadRadius: 0.5,
+                                                color: Colors.grey)
+                                          ]),
+                                      margin: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(8.0),
+                                      child:
+                                          Icon(allCourses[outindex]["image"]),
+                                    ),
+                                    Text(allCourses[outindex]["courses"]
+                                            [inindex]["type"]
+                                        .toString()),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4),
-                                        color: Colors.white,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                              blurRadius: 5,
-                                              spreadRadius: 0.5,
-                                              color: Colors.grey)
-                                        ]),
-                                    margin: const EdgeInsets.all(5.0),
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(allCourses[outindex]["image"]),
-                                  ),
-                                  Text(allCourses[outindex]["courses"][inindex]
-                                          ["type"]
-                                      .toString()),
-                                ],
+                              Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 206, 206, 206),
+                                    borderRadius: BorderRadius.circular(5.0)),
+                                child: Text(
+                                  " ${allCourses[outindex]["courses"][inindex]["mood"]} ",
+                                  style: const TextStyle(fontSize: 18),
+                                ),
                               ),
+                              Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 206, 206, 206),
+                                    borderRadius: BorderRadius.circular(5.0)),
+                                child: Text(
+                                  "INR ${allCourses[outindex]["courses"][inindex]["price"]}",
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(255, 52, 79, 255),
+                                    borderRadius: BorderRadius.circular(5.0)),
+                                child: const Text(
+                                  "  Explore  ",
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.white),
+                                ),
+                              )
                             ],
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 206, 206, 206),
-                                  borderRadius: BorderRadius.circular(5.0)),
-                              child: Text(
-                                "   ${allCourses[outindex]["courses"][inindex]["mood"]}   ",
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 206, 206, 206),
-                                  borderRadius: BorderRadius.circular(5.0)),
-                              child: Text(
-                                "INR ${allCourses[outindex]["courses"][inindex]["price"]}",
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 52, 79, 255),
-                                  borderRadius: BorderRadius.circular(5.0)),
-                              child: const Text(
-                                "  Explore  ",
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.white),
-                              ),
-                            )
-                          ],
-                        ),
-                        const Divider(),
-                      ],
-                    );
-                  },
-                ),
-              )
-            ],
+                          const Divider(),
+                        ],
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

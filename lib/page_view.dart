@@ -232,8 +232,10 @@ class _PageViewBuliderState extends State<PageViewBulider> {
               ),
             ),
             IconButton(
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("/NotifiactionScreenWidget"),
+              onPressed: () {
+                getxController.notiSeleteIndex.value = 0;
+                Get.toNamed("/NotifiactionScreenWidget");
+              },
               style: const ButtonStyle(
                 padding: MaterialStatePropertyAll(EdgeInsets.zero),
                 backgroundColor: MaterialStatePropertyAll(Colors.white),
